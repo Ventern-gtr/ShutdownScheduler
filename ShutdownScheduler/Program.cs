@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 internal enum LogType
 {
@@ -17,6 +16,7 @@ public class Program
     {
         string[] options =
         {
+            "Quick Schedule",
             "Schedule Shutdown",
             "Cancel Shutdown",
             "Exit"
@@ -68,7 +68,12 @@ public class Program
                 {
                     case 0:
                         {
-                            int[] shutdownTimes = { 15, 25, 35, 45, 60, 120 };
+                            ScheduleShutdown(60);
+                            break;
+                        }
+                    case 1:
+                        {
+                            int[] shutdownTimes = { 15, 25, 35, 45, 60, 90, 120 };
                             int subIndex = 0;
                             ConsoleKey subKey;
 
@@ -114,7 +119,7 @@ public class Program
                                 {
                                     Console.Clear();
                                     ScheduleShutdown(shutdownTimes[subIndex]);
-                                    Thread.Sleep(500);
+                                    Thread.Sleep(300);
                                     break;
                                 }
                                 else if (subKey == ConsoleKey.Escape)
@@ -127,18 +132,17 @@ public class Program
                         }
 
 
-                    case 1:
-                        PrintLine("Canceling shutdown...", LogType.Warning);
+                    case 2:
                         AbortShutdown();
                         break;
 
-                    case 2:
+                    case 3:
                         PrintLine("Exiting application.", LogType.Success);
                         Environment.Exit(0);
                         return;
                 }
 
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
             }
         }
     }
