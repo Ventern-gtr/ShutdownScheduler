@@ -29,7 +29,8 @@ public class Program
         {
             Console.Clear();
 
-            PrintLine($"         Shutdown Scheduler", LogType.None);
+            PrintLine($"                Shutdown Scheduler", LogType.None);
+            PrintLine("https://github.com/Ventern-gtr/ShutdownScheduler\n", LogType.None);
             PrintLine("-----------------------------------", LogType.None);
 
             for (int i = 0; i < options.Length; i++)
@@ -81,7 +82,8 @@ public class Program
                             {
                                 Console.Clear();
 
-                                PrintLine("         Schedule Shutdown", LogType.None);
+                                PrintLine("                 Schedule Shutdown", LogType.None);
+                                PrintLine("https://github.com/Ventern-gtr/ShutdownScheduler\n", LogType.None);
                                 PrintLine("-----------------------------------", LogType.None);
 
                                 for (int i = 0; i < shutdownTimes.Length; i++)
